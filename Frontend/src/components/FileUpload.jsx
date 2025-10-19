@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+
 const FileUpload = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);
   const [isFilePicked, setIsFilePicked] = useState(false);
@@ -34,7 +37,7 @@ const FileUpload = ({ onUploadSuccess }) => {
 
     try {
       const response = await axios.post(
-        "https://mnp-3.vercel.app/analyze_resume",
+        `${apiUrl}/analyze_resume`,
         formData,
         {
           headers: {

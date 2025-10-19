@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios"; // Ensure axios is installed
 import { FaSearch, FaTimes } from "react-icons/fa"; // Icons for search and clear
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+
 const SearchBar = ({ placeholder, onSearchResults }) => {
   const [query, setQuery] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
@@ -72,7 +75,9 @@ const SearchBar = ({ placeholder, onSearchResults }) => {
       setError(""); // Reset error state
       try {
         // Send the search query to the backend
-        const response = await axios.post("https://mnp-3.vercel.app/recommend", {
+
+        const response = await axios.post(`${apiUrl}/recommend`, {
+
           title: query,
         });
 
