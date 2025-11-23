@@ -6,5 +6,8 @@ node_modules/
 tests/
 *.pyc
 __pycache__/
+myenv/
+Uploaded_Resumes/
+
 # Ignore large dataset files
 data/
